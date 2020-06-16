@@ -4,11 +4,9 @@
 
 // using namespace std;
 int main() {
-  std::vector<std::string> brothers {
-    "David", "Singhal",
-        "oops};
-        for (std::string const &brother : brothers) {
-      std::cout << "Hello" << brother << '\n';
-    }
-    return 0;
+  std::vector<std::string> brothers{"David", "Singhal", "oops"};
+  for (std::string const &brother : brothers) {
+    std::cout << "Hello " << brother << '\n';
   }
+  return 0;
+}
