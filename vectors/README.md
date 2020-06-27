@@ -1,1 +1,1 @@
-If you tried to access the elements of a using an out-of-bound index, you might have noticed that there is no error or exception thrown.
+While accessing the elements of a vector using an out-of-bound index, there is no error or exception thrown.
