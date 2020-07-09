@@ -45,3 +45,14 @@ root@abc123defg:/home/workspace/multiple_files_example# ./a.out
 Compiling just the file you have changed saves time if there are many files and compilation takes a long time. However, the process above is tedious when using many files, especially if you don't remember which ones you have modified.
 
 For larger projects, it is helpful to use a build system which can compile exactly the right files for you and take care of linking. 
+
+# CMake and Make
+
+CMake is an open-source, platform-independent build system. CMake uses text documents, denoted as CMakeLists.txt files, to manage build environments, like make. A comprehensive tutorial on CMake would require an entire course, but you can learn the basics of CMake here, so you'll be ready to use it in the upcoming projects.
+CMakeLists.txt
+
+CMakeList.txt files are simple text configuration files that tell CMake how to build your project. There can be multiple CMakeLists.txt files in a project. In fact, one CMakeList.txt file can be included in each directory of the project, indicating how the files in that directory should be built.
+
+These files can be used to specify the locations of necessary packages, set build flags and environment variables, specify build target names and locations, and other actions.
+
+In the next few pages of this workspace, you are going to create a basic CMakeLists.txt file to build a small project.
