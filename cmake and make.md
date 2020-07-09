@@ -128,3 +128,24 @@ just as it did in the previous workspace.
 If you don't remember the name of your executable, the last line of the make output should tell you:
 
 [100%] Built target <your_executable_name>
+
+# CMake Step 6
+
+Now that your project builds correctly, try modifying one of the files. When you are ready to run the project again, you'll only need to run the make command from the build folder, and only that file will be compiled again. Try it now!
+
+In general, CMake only needs to be run once for a project, unless you are changing build options (e.g. using different build flags or changing where you store your files).
+
+Make will be able to keep track of which files have changed and compile only those that need to be compiled before building.
+
+Note: If you do re-run CMake, or if you are having problems with your build, it can be helpful to delete your build directory and start from scratch. Otherwise, some environment variables may not be reset correctly.
+
+
+# CMake Review
+
+Excellent work! You've now written a basic CMakeLists.txt file that builds a small project for you.
+
+CMake is a build system that uses text files named CMakeLists.txt to configure and build your project. Once the CMakeLists.txt is written, you only need the cmake and make commands to build your project again and again, so it is very convenient to use!
+
+Coming up, we will provide the CMakeLists.txt for your course project, and as you will see, it creates two executables and links several external libraries, so it will be a bit longer than the one you've just created. However, you should now have a better understanding of the mechanics of CMake, and you are ready to start experimenting with CMake on your own projects.
+
+
