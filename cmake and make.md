@@ -56,3 +56,75 @@ CMakeList.txt files are simple text configuration files that tell CMake how to b
 These files can be used to specify the locations of necessary packages, set build flags and environment variables, specify build target names and locations, and other actions.
 
 In the next few pages of this workspace, you are going to create a basic CMakeLists.txt file to build a small project.
+
+# CMake Step 1
+
+In the terminal to the right, navigate to the cmake_example folder. This folder should contain a simple CMake project, including:
+
+    An empty CMakeLists.txt file
+    A src directory with the increment_and_sum and vect_add_one files from a previous Notebook
+
+The CMakeLists.txt file should be open in the tabs on the right, along with the files from the src directory. You will write a basic CMakeLists.txt file to build all of these project files into an executable.
+
+The first lines that you'll want in your CMakeLists.txt are lines that specifies the minimum versions of cmake and C++ required to build the project. Add the following lines to your CMakeLists.txt and save the file:
+
+cmake_minimum_required(VERSION 3.5.1)
+
+set(CMAKE_CXX_STANDARD 14)
+
+These lines set the minimum cmake version required to 3.5.1 and set the environment variable CMAKE_CXX_STANDARD so CMake uses C++ 14. On your own computer, if you have a recent g++ compiler, you could use C++ 17 instead.
+
+# CMake Step 2
+
+CMake requires that we name the project, so you should choose a name for the project and then add the following line to CMakeLists.txt:
+
+project(<your_project_name>)
+
+You can choose any name you want, but be sure to change <your_project_name> to the actual name of the project!
+
+# CMake Step 3
+
+Next, we want to add an executable to this project. You can do that with the add_executable command by specifying the executable name, along with the locations of all the source files that you will need. CMake has the ability to automatically find source files in a directory, but for now, you can just specify each file needed:
+
+add_executable(your_executable_name  path_to_file_1  path_to_file_2 ...)
+
+Hint: The source files you need are the three .cpp files in the src/ directory. You can specify the path relative to the CMakeLists.txt file, so src/main.cpp would work, for example.
+
+# CMake Step 4
+
+A typical CMake project will have a build directory in the same place as the top-level CMakeLists.txt. Make a build directory in the /home/workspace/cmake_example folder:
+
+root@abc123defg:/home/workspace/cmake_example# mkdir build
+root@abc123defg:/home/workspace/cmake_example# cd build
+
+From within the build directory, you can now run CMake as follows:
+
+root@abc123defg:/home/workspace/cmake_example/build# cmake ..
+root@abc123defg:/home/workspace/cmake_example/build# make
+
+The first line directs the cmake command at the top-level CMakeLists.txt file with ... This command uses the CMakeLists.txt to configure the project and create a Makefile in the build directory.
+
+In the second line, make finds the Makefile and uses the instructions in the Makefile to build the project.
+
+If CMake and Make are successful, you should see something like the following output in the terminal:
+
+## 50%] Building CXX object CMakeFiles/eg.dir/src/vect_add_one.cpp.o
+## [ 75%] Building CXX object CMakeFiles/eg.dir/src/increment_and_sum.cpp.o
+## [100%] Linking CXX executable eg
+
+
+# CMake Step 5
+
+If everything has worked correctly, you should now be able to run your executable from the build folder:
+
+root@abc123defg:/home/workspace/cmake_example/build# ./your_executable_name
+
+This executable should print:
+
+    The total is: 14
+
+just as it did in the previous workspace.
+
+If you don't remember the name of your executable, the last line of the make output should tell you:
+
+[100%] Built target <your_executable_name>
