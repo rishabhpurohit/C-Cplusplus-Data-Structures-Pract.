@@ -1,4 +1,4 @@
-$Object Files
+# Object Files
 
 When you compile a project with g++, g++ actually performs several distinct tasks:
 
@@ -28,3 +28,20 @@ root@abc123defg:/home/workspace/multiple_files_example# ./a.out
 Here, the * operator is a wildcard, so any matching file is selected. If you compile and run these files together, the executable should print:
 
     The total is: 14
+
+
+# Compiling One File of Many, Step 2
+
+But what if you make changes to your code and you need to re-compile? In that case, you can compile only the file that you changed, and you can use the existing object files from the unchanged source files for linking.
+
+Try changing the code in /multiple_files_example/main.cpp to have different numbers in the vector and save the file with CTRL-s.
+
+When you have done that, re-compile just main.cpp by running:
+
+root@abc123defg:/home/workspace/multiple_files_example# g++ -c main.cpp
+root@abc123defg:/home/workspace/multiple_files_example# g++ *.o
+root@abc123defg:/home/workspace/multiple_files_example# ./a.out
+
+Compiling just the file you have changed saves time if there are many files and compilation takes a long time. However, the process above is tedious when using many files, especially if you don't remember which ones you have modified.
+
+For larger projects, it is helpful to use a build system which can compile exactly the right files for you and take care of linking. 
