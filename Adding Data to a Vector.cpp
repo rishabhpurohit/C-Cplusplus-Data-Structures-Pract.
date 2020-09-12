@@ -3,10 +3,10 @@
 #include <iostream>
 using std::vector;
 using std::cout;
-
+using namespace std;
 int main() {
     // Initial Vector
-    vector v {1, 2, 3};
+    vector<int> v {1, 2, 3};
     
     // Print the contents of the vector
     for (int i=0; i < v.size(); i++) {
